@@ -1,0 +1,68 @@
+from tkinter import *
+
+def btnClick (numbers):
+    global operator
+    operator=operator+ str(numbers)
+    ab.set (operator)
+
+def btnClear():
+    global operator
+    operator=" "
+    ab.set('')
+
+def btnEquals():
+
+    global operator
+    sumup=str (eval (operator))
+    ab.set (sumup)
+    operator=''
+
+root=Tk()
+root.geometry('240x300')
+root.title('Calculator')
+
+operator=''
+ab=StringVar()
+ab.set('')
+
+e=Entry (root, text=ab, bg='White', fg='black', font=('arial', 5 , 'bold'), insertwidth=3, justify='right', bd=3).grid(columnspan=4)
+
+mybuttonl=Button (root, text='1', pady=16, padx=16, bd=8, command=lambda:btnClick(1))
+mybutton2=Button (root, text='2', pady=16, padx=16, bd=8, command=lambda:btnClick(2))
+mybutton3=Button (root, text='3', pady=16, padx=16, bd=8, command=lambda:btnClick(3))
+mybutton4=Button (root, text='4', pady=16, padx=16, bd=8, command=lambda:btnClick(4))
+mybutton5=Button (root, text='5', pady=16, padx=16, bd=8, command=lambda:btnClick(5))
+mybutton6=Button (root, text='6', pady=16, padx=16, bd=8, command=lambda:btnClick(6))
+mybutton7=Button (root, text='7', pady=16, padx=16, bd=8, command=lambda:btnClick(7))
+mybutton8=Button (root, text='8', pady=16, padx=16, bd=8, command=lambda:btnClick(8))
+mybutton9=Button (root, text='9', pady=16, padx=16, bd=8, command=lambda:btnClick(9))
+mybutton0=Button (root, text='0', pady=16, padx=16, bd=8, command=lambda:btnClick(0))
+                                                                                                                    
+mybuttonadd=Button (root, text='+', pady=16, padx=16, bd=8, command=lambda:btnClick('+'))
+mybuttonsub=Button (root, text='=', pady=16, padx=16, bd=8, command=lambda:btnClick('='))
+mybuttonmul=Button (root, text='*', pady=16, padx=16, bd=8, command=lambda:btnClick('*'))
+mybuttondiv=Button (root, text='/',pady=16, padx=16, bd=8, command=lambda:btnClick('/'))
+buttonclr=Button (root, pady=16, padx=16, bd=8, text='c', command=btnClear)
+buttonEqu=Button (root, pady=16, padx=16, bd=8, text='=', command=btnEquals)
+
+mybuttonl.grid(row=3,column=0)
+mybutton2.grid(row=3, column=1)
+mybutton3.grid(row=3, column=2)
+mybuttonadd.grid(row=3, column=3)
+
+mybutton4.grid(row=2, column=0)
+mybutton5.grid(row=2, column=1)
+mybutton6.grid(row=2, column=2)
+mybuttonsub.grid(row=2, column=3)
+
+mybutton7.grid(row=1, column=0)
+mybutton8.grid(row=1, column=1)
+mybutton9.grid(row=1, column=2)
+mybuttonmul.grid(row=1, column=3)
+
+mybutton0.grid(row=4,column=1)
+mybuttondiv.grid(row=4, column=3)
+buttonclr.grid(row=4, column=0)
+buttonEqu.grid(row=4, column=2)
+root.mainloop()
+
